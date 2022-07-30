@@ -26,5 +26,8 @@
   },
   "jest": {
     "preset": "react-360"
+  },
+  "resolutions": {
+    "electron": "^11.0.1"
   }
 }
