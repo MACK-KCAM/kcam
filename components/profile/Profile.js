@@ -12,17 +12,30 @@ import {
 export default class Profile extends React.Component {
   constructor(props) {
     super(props);
+    // this.state = {
+    //   showProfile: true,
+    // }
   }
 
-  mountNewComponent() {    
-    postMessage({ type: "newComponent"});
-  }
-  
+  // mountNewComponent() {    
+  //   postMessage({ type: "newComponent"});
+  // }
+
+  // componentDidMount () {
+  //   this.setState({ showProfile: false })
+  // }
+
   render () {
+    // const showProfile = this.state.showProfile;
     return (
       <View>
+        {/* { showProfile ? (
+          <Text>User: </Text>
+        ) : (
+          <Text></Text>
+        )
+        } */}
         <Text>User: </Text>
-        {/* <Image> </Image> */}
       </View>
     );
   }

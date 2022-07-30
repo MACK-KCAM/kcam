@@ -4,12 +4,31 @@ import {
   StyleSheet,
   Text,
   View,
+  VrButton
 } from 'react-360';
 
 // import components
 import NavBar from './components/navbar/navbar';
 
 export default class kcam_test extends React.Component {
+  
+  getRequest = () => {
+    fetch('http://localhost:3000/api/users', 
+    {
+      mode: "no-cors",
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+      },
+      // body: {
+      //   "authId": "0x001"
+      // },
+  })
+    .then(res => res.json())
+    .then(data => console.log(data));
+  }
+
   render() {
     return (
       <View style={styles.panel}>
@@ -17,6 +36,8 @@ export default class kcam_test extends React.Component {
           <Text style={styles.greeting}>
             Welcome to KCAM
           </Text>
+          <VrButton onClick={() => this.getRequest()}><Text>
+            Get</Text></VrButton>
         </View>
         <View style={styles.navBar}>
           <NavBar/>
