@@ -5,16 +5,16 @@ const { userModel : { userModel } } = require('../../models');
 router.route('/users')
     .get(async (req, res) => {
       console.log(`Received ${req.method} request at api/users`)
-      if (!req.body) {
+      if (!req.query) {
         const error = {
           status: 500,
-          message: "Nothing found in request body"
+          message: "Nothing found in request query"
         }
         res.status(error.status).json(error);
       }
       try {
         // FETCH ALL DATA ASSOCIATED WITH AUTH ID
-        const { authId } = req.body;
+        const { authId } = req.query;
         const response = await userModel.find({ authId: authId });
         console.log('Documents successfully retrieved from MongoDB');
         res.json(response);
