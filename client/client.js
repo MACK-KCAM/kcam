@@ -104,6 +104,17 @@ class surfaceModule extends Module {
   dePic(){
     r360.detachRoot(Pic);
   }
+
+  album(val){
+    Album = r360.renderToLocation(
+      r360.createRoot('Album', { album: val }),
+      r360.getDefaultLocation()
+    );
+  }
+
+  deAlbum(){
+    r360.detachRoot(Album);
+  }
   
 }
 

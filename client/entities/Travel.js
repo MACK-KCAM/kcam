@@ -10,7 +10,8 @@ import {
   NativeModules
 } from 'react-360';
 
-import Pic from './Pic.js'
+import Pic from './Pic.js';
+import { Get, Post, Put, Delete, apiRoute } from '../services/index.js';
 const surfaceModule = NativeModules.surfaceModule;
 
 export default class Travel extends React.Component {
@@ -19,11 +20,31 @@ export default class Travel extends React.Component {
     this.state = {
       count:0,
       clicked: false,
-      showPicEntity: [false, false, false, false, false],
-      uri: ['static_assets/greece/beach.jpeg', 'static_assets/greece/santorini.jpeg', 'static_assets/ch_cambodia.avif', 'static_assets/a.avif','static_assets/unsplashItaly.jpg'],
+      showPicEntity: [false, false, false, false, false], // need to change this to have same length as uri
+      uri: []
     }
     this.onPicEntityClick = this.onPicEntityClick.bind(this);
+    this.getAllImages = this.getAllImages.bind(this);
   }
+
+  // get fetch url api/users with body authId -> response.global is array of all photos registered to that user
+  
+  getAllImages = async () => {
+    // , {
+    //   "authId": "0x002",
+    // }
+    const authId = "0x002";
+    try {
+      const res = await Get(apiRoute.getRoute(`users?authId=${authId}`))
+      // ?authId=${authId}
+      console.log("response: ", res);
+      this.setState({ uri: res[0].global })
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+  // get fetch url api/albums with body authId, albumId -> response.photos is array of photos registered to user + album
 
   onPicEntityClick(i){
     this.setState(prevState => ({
@@ -41,9 +62,12 @@ export default class Travel extends React.Component {
     // else if (!this.state.clicked && this.state.count > 1) surfaceModule.dePic()
   }
 
+  componentDidMount() {
+    this.getAllImages();
+  }
+
   render () {
     const pics = []
-    // i < images.length
     for(let i = 0; i < this.state.uri.length; i++){
       pics.push(
       // <VrButton

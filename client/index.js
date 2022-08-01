@@ -39,7 +39,7 @@ export default function kcam_test() {
         <Text style={styles.greeting}>
           Welcome to KCAM
         </Text>
-        <VrButton onClick={() => this.getRequest()}><Text>Get</Text></VrButton>
+        {/* <VrButton onClick={() => this.getRequest()}><Text>Get</Text></VrButton> */}
       </View>
       <View style={styles.navBar}>
         <NavBar/>
