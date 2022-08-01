@@ -21,9 +21,9 @@ router.route('/photos')
       Example:
       const imgUrl = await imgUpload(req); // return string of URL
     */
-    let imgUrl = 'google.com';
+    // let imgUrl = 'google.com';
     // SAVE STRING URL OF UPLOADED IMAGE IN CORRECT ALBUM
-    const { authId, albumId } = req.body;
+    const { authId, albumId, imgUrl } = req.body;
       try {
         // ADD PHOTO REFERENCE TO CORRECT ALBUM
         await userModel.updateOne(

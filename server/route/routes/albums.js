@@ -4,14 +4,14 @@ const { userModel: { userModel } } = require('../../models');
 router.route('/albums')
     .get(async (req, res) => {
       console.log(`Received ${req.method} request at api/albums`)
-      if (!req.body) {
+      if (!req.query) {
         const error = {
           status: 500,
-          message: "Nothing found in request body"
+          message: "Nothing found in request query"
         }
         res.status(error.status).json(error);
       }
-      const { authId, albumId } = req.body;
+      const { authId, albumId } = req.query;
       try {
         // FETCH ALBUM ASSOCIATED WITH AUTH ID BY ITS ID NUMBER
         let response = await userModel.findOne(
