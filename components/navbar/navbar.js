@@ -84,6 +84,7 @@ const navBarStyle = {
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-around',
+  // backgroundColor:'#000000'
   // position: 'absolute',
   // left: 0,
   // bottom: 0,

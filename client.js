@@ -1,7 +1,7 @@
 // This file contains the boilerplate to execute your React app.
 // If you want to modify your application's content, start in "index.js"
 
-import {ReactInstance,Surface, Module} from 'react-360-web';
+import {ReactInstance, Surface, Module} from 'react-360-web';
 
 function init(bundle, parent, options = {}) {
   r360 = new ReactInstance(bundle, parent, {
@@ -60,10 +60,10 @@ function init(bundle, parent, options = {}) {
   //   r360.createRoot('Travel', {}),
   //   r360.getDefaultLocation()
   // );
-  r360.renderToLocation(
-    r360.createRoot('Pic', { /* initial props */ }),
-    r360.getDefaultLocation()
-    )
+  // r360.renderToLocation(
+  //   r360.createRoot('Pic', { /* initial props */ }),
+  //   r360.getDefaultLocation()
+  //   )
 
   // Load the initial environment
   r360.compositor.setBackground(r360.getAssetURL('khmeln_park.jpg'));
@@ -77,6 +77,8 @@ function init(bundle, parent, options = {}) {
 //       r360.getDefaultLocation()
 //       )
 
+
+
 class surfaceModule extends Module {
   constructor(){
     super('surfaceModule')
@@ -88,15 +90,20 @@ class surfaceModule extends Module {
     );
   }
   deTravel(){
-    r360.detachRoot(Travel)
+    r360.detachRoot(Travel);
+    this.dePic();
   }
 
-  // pic(){
-  //   Pic = r360.renderToLocation(
-  //     r360.createRoot('Pic', { /* initial props */ }),
-  //     r360.getDefaultLocation()
-  //     )
-  // }
+  pic(val){
+    Pic = r360.renderToLocation(
+      r360.createRoot('Pic', { url: val }),
+      r360.getDefaultLocation()
+    );
+  }
+
+  dePic(){
+    r360.detachRoot(Pic);
+  }
   
 }
 

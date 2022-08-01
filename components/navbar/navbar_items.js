@@ -42,11 +42,14 @@ export default class NavBarItem extends React.Component {
         // top: 0,
         // right: 0,
         // bottom: 0,
+        // backgroundColor:'#000000',
+        color:'#000000'
       }}>
         <VrButton  style={{
           transform: [
             {translate: [0, 2, -5]},
             {rotateX: 45},
+
         ]}} onClick={(e) => {
           e.preventDefault();
           console.log("clicked");
