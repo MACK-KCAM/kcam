@@ -14,6 +14,7 @@ import PowerPoint from './entities/PowerPoint';
 import Travel from './entities/Travel';
 import Pikachu from './entities/Pikachu';
 import Charmander from './entities/Charmander';
+import Pic from './entities/Pic';
 
 export default function kcam_test() {
   getRequest = () => {
@@ -87,3 +88,4 @@ AppRegistry.registerComponent('PowerPoint', () => PowerPoint);
 AppRegistry.registerComponent('Travel', () => Travel);
 AppRegistry.registerComponent('Pikachu', () => Pikachu);
 AppRegistry.registerComponent('Charmander', () => Charmander);
+AppRegistry.registerComponent('Pic', () => Pic);

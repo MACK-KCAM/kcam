@@ -60,15 +60,22 @@ function init(bundle, parent, options = {}) {
   //   r360.createRoot('Travel', {}),
   //   r360.getDefaultLocation()
   // );
+  r360.renderToLocation(
+    r360.createRoot('Pic', { /* initial props */ }),
+    r360.getDefaultLocation()
+    )
 
   // Load the initial environment
-  r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
+  r360.compositor.setBackground(r360.getAssetURL('khmeln_park.jpg'));
 
   // for onClick to post profile -- only line we added
   r360.runtime.executor._worker.addEventListener('message', (e) => onMessage(e, r360));
 }
 
-
+// r360.renderToLocation(
+//       r360.createRoot('Pic', { /* initial props */ }),
+//       r360.getDefaultLocation()
+//       )
 
 class surfaceModule extends Module {
   constructor(){
@@ -83,6 +90,13 @@ class surfaceModule extends Module {
   deTravel(){
     r360.detachRoot(Travel)
   }
+
+  // pic(){
+  //   Pic = r360.renderToLocation(
+  //     r360.createRoot('Pic', { /* initial props */ }),
+  //     r360.getDefaultLocation()
+  //     )
+  // }
   
 }
 

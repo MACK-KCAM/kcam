@@ -37,12 +37,13 @@ export const styles = StyleSheet.create({
     ]
   },
   greetingBox: {
-    padding: 20,
+    padding: 200,
     backgroundColor: '#000000',
     borderColor: '#639dda',
     borderWidth: 2,
     justifyContent: 'center',
     alignItems: 'center',
+    opacity:1,
   },
   greeting: {
     fontSize: 30,
