@@ -22,6 +22,7 @@ router.route('/photos')
       const imgUrl = await imgUpload(req); // return string of URL
     */
     // let imgUrl = 'google.com';
+    
     // SAVE STRING URL OF UPLOADED IMAGE IN CORRECT ALBUM
     const { authId, albumId, imgUrl } = req.body;
       try {

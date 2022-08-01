@@ -1,31 +1,12 @@
+const multer = require('multer');
 
-// const express = require('express');
-// const middleware = require('../middlewares');
-// const multer = require('multer')
-// const {v4: uuidv4} = require('uuid')
+const fileStorageEngine = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './images');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '--' + file.originalname);
+  }
+});
 
-
-// //downloading images to multer
-// const storage = multer.diskStorage({
-//     destination: function (req, fil,cb){
-//         cb(null, 'images')
-//     },
-//     filename: function (req, file,cb){
-//         cb(null, uuidv4() + '-' + Date.now() + path.extname(file.originalname));
-//     }
-// });
-
-// const fileFilter = (req, file,cb) => {
-//     const allowedFileTypes = [ 'image/jpeg', 'image/jpg', 'image/png']
-//     if(allowedFileTypes.includes(file.mimetype)){
-//         cb(null,true)
-//     }else{
-//         cb(null, false)
-//     }
-// }
-
-// let imgUpload = multer({storage,fileFilter})
-
-// module.exports = {
-//   imgUpload
-// }
+module.exports = multer({ storage: fileStorageEngine });

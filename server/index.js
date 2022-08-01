@@ -10,7 +10,7 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json()) 
 
-//Needed for File Upload on Multer
+// NEEDED FOR MULTER
 app.use(cors())
 
 // PORT DEFINITION
