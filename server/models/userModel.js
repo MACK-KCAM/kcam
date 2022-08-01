@@ -13,7 +13,7 @@ const userSchema = new Schema({
   favorites: [[]],
   global: [String],
   currentAlbumId: Number
-});   
+});
 
 // currentAlbumId exists in case the user decides to delete an album
 
