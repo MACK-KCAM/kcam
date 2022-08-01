@@ -6,12 +6,16 @@ import {
   View,
   VrButton
 } from 'react-360';
+import { MemoryRouter,NativeRouter, Route, Link } from "react-router-native";
 
 // import components
 import NavBar from './components/navbar/navbar';
+import PowerPoint from './entities/PowerPoint';
+import Travel from './entities/Travel';
+import Pikachu from './entities/Pikachu';
+import Charmander from './entities/Charmander';
 
-export default class kcam_test extends React.Component {
-  
+export default function kcam_test() {
   getRequest = () => {
     fetch('http://localhost:3000/api/users', 
     {
@@ -28,28 +32,25 @@ export default class kcam_test extends React.Component {
     .then(res => res.json())
     .then(data => console.log(data));
   }
-
-  render() {
-    return (
-      <View style={styles.panel}>
-        <View style={styles.greetingBox}>
-          <Text style={styles.greeting}>
-            Welcome to KCAM
-          </Text>
-          <VrButton onClick={() => this.getRequest()}><Text>
-            Get</Text></VrButton>
-        </View>
-        <View style={styles.navBar}>
-          <NavBar/>
-        </View>
+  return (
+    <View style={styles.panel}>
+      <View style={styles.greetingBox}>
+        <Text style={styles.greeting}>
+          Welcome to KCAM
+        </Text>
+        <VrButton onClick={() => this.getRequest()}><Text>Get</Text></VrButton>
       </View>
-    );
-  }
+      <View style={styles.navBar}>
+        <NavBar/>
+      </View>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
   panel: {
     // Fill the entire surface
+    display: 'flex',
     width: 1000,
     height: 600,
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
@@ -71,11 +72,18 @@ const styles = StyleSheet.create({
     // justifyContent: 'flex-end',
     // alignItems: 'stretch',
     // float: 'right',
+    borderRadius: 1,
+    borderColor: 'rgba(255, 255, 255, 255)',
     position: 'absolute',
     left: 0,
     bottom: 0,
     right: 0,
+    
   }
 });
 
 AppRegistry.registerComponent('kcam_test', () => kcam_test);
+AppRegistry.registerComponent('PowerPoint', () => PowerPoint);
+AppRegistry.registerComponent('Travel', () => Travel);
+AppRegistry.registerComponent('Pikachu', () => Pikachu);
+AppRegistry.registerComponent('Charmander', () => Charmander);

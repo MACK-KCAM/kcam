@@ -36,12 +36,17 @@ export default class TravelPhotos extends React.Component {
 
 const styles = StyleSheet.create({
   mainView: {
-      width: 800,
-      height: 400,
-      backgroundColor: '#eee',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center'
+    width: 800,
+    height: 400,
+    backgroundColor: '#eee',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transform: [
+      { translateX: 0 },
+      { translateY: 100 },
+    ], 
+    margin: '3em'
   },
   flag: {
       width: 400,
@@ -54,6 +59,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight: '2em',
+    // borderRadius: '10px'
   },
   albumTitle: {
     fontSize: 30,

@@ -17,7 +17,7 @@ export default class Settings extends React.Component {
   render () {
     return (
       <View>
-        <Text>Settings: </Text>
+        {/* <Text>Settings: </Text> */}
       </View>
     );
   }

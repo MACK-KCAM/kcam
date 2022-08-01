@@ -9,10 +9,12 @@ import {
     VrButton,
 
 } from 'react-360';
+
 import Profile from '../profile/Profile.js';
 import Settings from '../Settings/Settings.js';
 import TravelPhotos from '../TravelPhotos/TravelPhotos.js';
 import AddPhotos from '../AddPhotos/AddPhotos.js';
+import Travel from '../../entities/Travel.js';
 
 export default class NavBarItem extends React.Component {
   constructor(props) {
@@ -31,11 +33,15 @@ export default class NavBarItem extends React.Component {
     console.log(this.props);
     return (
       <View style={{
-        display: 'flex',
-        flex: 0,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
+        // display: 'flex',
+        // flex: 0,
+        // flexDirection: 'row',
+        // alignItems: 'center',
+        // justifyContent: 'space-around',
+        // position: 'absolute',
+        // top: 0,
+        // right: 0,
+        // bottom: 0,
       }}>
         <VrButton  style={{
           transform: [
@@ -58,6 +64,9 @@ export default class NavBarItem extends React.Component {
         {
           this.props.showSettings ? <Settings /> : null
         }
+        {/* {
+          this.props.showTravelEntity ? <Travel /> : null
+        } */}
       </View>
     )
   }
