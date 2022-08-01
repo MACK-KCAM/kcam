@@ -62,7 +62,7 @@ export const styles = StyleSheet.create({
     transform: [
       { rotateX: 60 },
       { rotateY: -60 },
-      { rotateZ: 60 },
+      { rotateZ: 61 },
       { translateX: 100 },
       { translateY: 390 },
       { translateZ: -230 },
