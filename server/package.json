@@ -1,0 +1,22 @@
+{
+  "name": "kcam",
+  "version": "0.1.0",
+  "description": "immersive photo explorer",
+  "main": "index.js",
+  "scripts": {
+    "server": "node /index.js",
+    "server-dev": "nodemon /index.js"
+  },
+  "author": "Murad Alqadi, Alyssa Chew, Chris Jamali, Kevin Le",
+  "license": "none",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.3",
+    "mongoose": "^5.10.11"
+  },
+  "devDependencies": {
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.19"
+  }
+}
