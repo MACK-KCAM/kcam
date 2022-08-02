@@ -65,6 +65,11 @@ function init(bundle, parent, options = {}) {
   //   r360.getDefaultLocation()
   //   )
 
+  // r360.renderToLocation(
+  //   r360.createRoot('Albums', { }),
+  //   r360.getDefaultLocation()
+  // );
+
   // Load the initial environment
   r360.compositor.setBackground(r360.getAssetURL('khmeln_park.jpg'));
 
@@ -105,15 +110,26 @@ class surfaceModule extends Module {
     r360.detachRoot(Pic);
   }
 
-  album(val){
-    Album = r360.renderToLocation(
-      r360.createRoot('Album', { album: val }),
+  album(){
+    Albums = r360.renderToLocation(
+      r360.createRoot('Albums', { }),
       r360.getDefaultLocation()
     );
   }
 
   deAlbum(){
-    r360.detachRoot(Album);
+    r360.detachRoot(Albums);
+  }
+
+  albumPics(val) {
+    AlbumPics = r360.renderToLocation(
+      r360.createRoot('AlbumPics', { pics: val }),
+      r360.getDefaultLocation()
+    );
+  }
+
+  deAlbumPics() {
+    r360.detachRoot(AlbumPics);
   }
   
 }

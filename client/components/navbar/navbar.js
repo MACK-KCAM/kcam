@@ -21,6 +21,7 @@ export default class NavBar extends React.Component {
       showAddPhotos: false,
       showSettings: false,
       showTravelEntity: false,
+      showAlbumEntity: false,
       click: 0
     };
     this.onProfileClick = this.onProfileClick.bind(this);
@@ -28,6 +29,7 @@ export default class NavBar extends React.Component {
     this.onAddPhotosClick = this.onAddPhotosClick.bind(this);
     this.onSettingsClick = this.onSettingsClick.bind(this);
     this.onTravelEntityClick = this.onTravelEntityClick.bind(this);
+    this.onAlbumEntityClick = this.onAlbumEntityClick.bind(this);
   }
 
   onProfileClick() {
@@ -63,12 +65,21 @@ export default class NavBar extends React.Component {
     else surfaceModule.deTravel()
   }
 
+  onAlbumEntityClick(){
+    this.setState(prevState => ({
+      showAlbumEntity: !prevState.showAlbumEntity,
+    }));
+    if (!this.state.showAlbumEntity) surfaceModule.album()
+    else surfaceModule.deAlbum()
+  }
+
 
   render () {
     return (
       <View style={navBarStyle}>
         <NavBarItem onButtonClick={this.onProfileClick.bind(this)} button="Profile" showProfile={this.state.showProfile}/>
-        <NavBarItem onButtonClick={this.onTravelPhotosClick.bind(this)} button="Travel Photos" showTravelPhotos={this.state.showTravelPhotos}/>
+        <VrButton onClick={this.onAlbumEntityClick}><Text>Albums</Text></VrButton>
+        {/* <NavBarItem onButtonClick={this.onTravelPhotosClick.bind(this)} button="Travel Photos" showTravelPhotos={this.state.showTravelPhotos}/> */}
         <NavBarItem onButtonClick={this.onAddPhotosClick.bind(this)} button="Add Photos" showAddPhotos={this.state.showAddPhotos}/>
         <NavBarItem onButtonClick={this.onSettingsClick.bind(this)} button="Settings" showSettings={this.state.showSettings}/>
         {/* <NavBarItem onButtonClick={this.onTravelEntityClick.bind(this)} button="Travel Entity" onClick ={/> */}

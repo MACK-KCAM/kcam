@@ -15,6 +15,8 @@ import Travel from './entities/Travel';
 import Pikachu from './entities/Pikachu';
 import Charmander from './entities/Charmander';
 import Pic from './entities/Pic';
+import Albums from './entities/Albums';
+import AlbumPics from './entities/AlbumPics';
 
 export default function kcam_test() {
   getRequest = () => {
@@ -89,3 +91,5 @@ AppRegistry.registerComponent('Travel', () => Travel);
 AppRegistry.registerComponent('Pikachu', () => Pikachu);
 AppRegistry.registerComponent('Charmander', () => Charmander);
 AppRegistry.registerComponent('Pic', () => Pic);
+AppRegistry.registerComponent('Albums', () => Albums);
+AppRegistry.registerComponent('AlbumPics', () => AlbumPics);

@@ -43,7 +43,7 @@ export default class NavBarItem extends React.Component {
         // right: 0,
         // bottom: 0,
         // backgroundColor:'#000000',
-        color:'#000000'
+        // color:'#000000'
       }}>
         <VrButton  style={{
           transform: [

@@ -20,7 +20,7 @@ export default class Travel extends React.Component {
     this.state = {
       count:0,
       clicked: false,
-      showPicEntity: [false, false, false, false, false], // need to change this to have same length as uri
+      showPicEntity: [], // needs to have same length as uri
       uri: []
     }
     this.onPicEntityClick = this.onPicEntityClick.bind(this);
@@ -38,7 +38,11 @@ export default class Travel extends React.Component {
       const res = await Get(apiRoute.getRoute(`users?authId=${authId}`))
       // ?authId=${authId}
       console.log("response: ", res);
-      this.setState({ uri: res[0].global })
+
+      this.setState({ 
+        uri: res[0].global,
+        showPicEntity: new Array(res[0].global.length).fill(false)
+      })
     }
     catch (err) {
       console.log(err);
@@ -68,7 +72,7 @@ export default class Travel extends React.Component {
 
   render () {
     const pics = []
-    for(let i = 0; i < this.state.uri.length; i++){
+    for(let i = 0; i < 12; i++){
       pics.push(
       // <VrButton
       //   style={styles.greetingBox}
